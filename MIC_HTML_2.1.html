@@ -1,0 +1,662 @@
+<!-- Save this file as index.html -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Malmö International Church — Modern One-Page</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue:#005BBB;
+    --yellow:#FFCC00;
+    --bg:#f6f7f9;
+    --card:#ffffff;
+    --muted:#6b7280;
+    --radius:12px;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family:'Poppins',system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;
+    background:var(--bg);
+    color:#111827;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    line-height:1.5;
+    scroll-behavior:smooth;
+  }
+
+  /* Header */
+  header{
+    position:sticky;
+    top:0;
+    z-index:999;
+    background:linear-gradient(180deg, rgba(0,0,0,0.06), rgba(0,0,0,0));
+    backdrop-filter: blur(6px);
+    border-bottom:1px solid rgba(0,0,0,0.04);
+  }
+  .nav-wrap{
+    max-width:1200px;
+    margin:0 auto;
+    padding:14px 20px;
+    display:flex;
+    align-items:center;
+    gap:18px;
+  }
+  .logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .logo .mark{
+    width:40px;height:40px;border-radius:8px;
+    background:linear-gradient(135deg,var(--blue),#0078ff);
+    box-shadow: 0 4px 14px rgba(0,91,187,0.18);
+    color:white; display:flex;align-items:center;justify-content:center;font-weight:700;
+    font-size:16px;
+  }
+  .logo h1{font-size:16px;margin:0;font-weight:600;color:var(--blue)}
+  nav{margin-left:auto; display:flex; gap:14px; align-items:center; flex-wrap:wrap}
+  nav a{color:#0f1724; font-weight:600; padding:8px 10px; border-radius:8px; text-decoration:none}
+  nav a:hover{background:rgba(0,0,0,0.04)}
+  .cta{
+    background:var(--yellow); padding:8px 14px; border-radius:10px; color:#111;font-weight:700; text-decoration:none; margin-left:8px;
+    box-shadow: 0 6px 18px rgba(255,204,0,0.12);
+  }
+
+.card {
+  position: relative;       /* allow absolute positioning of text */
+  overflow: hidden;         /* crop image if needed */
+  border-radius: 8px;       /* optional, nice rounded corners */
+}
+
+.card img {
+  width:100%;
+  height:auto;       /* allow height to scale naturally */
+  max-height:220px;  /* prevent overly tall cards */
+  object-fit:contain; /* show full image without cropping */
+  display:block;
+  background:#f6f7f9; /* neutral background for letterbox */
+}
+
+
+.card-body {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.25); /* keep dark overlay */
+  font-family: 'Poppins', sans-serif;
+}
+
+.card-body h4 {
+  margin: 0 0 10px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #ffffff; /* pure white for titles */
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+}
+
+.card p {
+  font-size: 1.05rem;       /* slightly larger for readability */
+  line-height: 1.6;         /* more space between lines */
+  color: #333333;           /* darker for contrast */
+  margin-top: 8px;          /* space between heading and paragraph */
+  margin-bottom: 12px;      /* space below the paragraph */
+}
+
+.card-body a.small-btn {
+  display: inline-block;
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: 5px;
+  background: #004aad;   /* deep blue */
+  color: #ffffff;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+.card-body a.small-btn:hover {
+  background: #f6c700;   /* warm yellow on hover */
+  color: #000000;
+}
+
+/* ABOUT SECTION */
+#about h3 {
+  font-size: 28px;           /* larger heading */
+  font-weight: 700;          /* bold */
+  color: var(--blue);      /* bright accent */
+  margin-bottom: 16px;
+}
+
+#about p {
+  font-size: 1.05rem;        /* readable size */
+  line-height: 1.8;          /* comfortable spacing */
+  color: #111827;            /* dark text for contrast */
+  margin-bottom: 12px;
+}
+
+#about a.small-btn {
+  display: inline-block;
+  padding: 12px 22px;        /* bigger, friendlier button */
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 12px;
+  background: var(--yellow);
+  color: #111827;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(255,204,0,0.2);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#about a.small-btn:hover {
+  background: #ffe680;
+  transform: translateY(-2px);
+}
+
+
+  /* Hero */
+  .hero{
+    height:68vh;
+    min-height:420px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    text-align:center;
+    background-image: url("images/main_bride_malmo.jpg");
+    background-size:cover; background-position:center;
+    position:relative;
+  }
+  .hero::after{
+    content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(2,6,23,0.35), rgba(2,6,23,0.45));
+  }
+  .hero-inner{
+    position:relative; z-index:2; max-width:1000px; padding:28px;
+  }
+  .hero h2{font-size:clamp(26px,4vw,44px); margin:0 0 12px; font-weight:700; letter-spacing:-0.02em}
+  .hero p{margin:0 0 20px; color:rgba(255,255,255,0.95); font-weight:400}
+  .hero .btn-row{display:flex;gap:12px; justify-content:center; flex-wrap:wrap}
+  .btn{background:var(--yellow); color:#081029; padding:12px 18px; border-radius:10px; font-weight:700; border:none; cursor:pointer; text-decoration:none}
+  .btn.secondary{background:transparent; color:white; border:1px solid rgba(255,255,255,0.16)}
+
+  /* Content wrapper */
+  .wrap{max-width:1200px;margin:0 auto;padding:48px 20px}
+#vision.wrap { padding:80px 20px; }  /* more space above/below */
+
+#vision {
+  margin-top: 100px; /* adds clear space from Team section */
+}
+
+
+  /* Section headings */
+  .section-head{text-align:center;margin-bottom:28px}
+  .section-head h3{color:var(--blue); margin:0; font-size:20px; font-weight:700}
+  .section-head p{color:var(--muted); margin-top:8px}
+
+  /* Grid */
+  .grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:20px}
+
+  .card{
+    background:var(--card);
+    border-radius:var(--radius);
+    overflow:hidden;
+    box-shadow: 0 6px 20px rgba(5,10,25,0.06);
+    transition:transform .22s ease, box-shadow .22s;
+    display:flex; flex-direction:column;
+  }
+  .card:hover{transform:translateY(-6px); box-shadow:0 14px 34px rgba(5,10,25,0.09)}
+  .card img{width:100%; height:160px; object-fit:cover; display:block}
+  .card .card-body{padding:16px; flex:1; display:flex; flex-direction:column}
+  .card h4{margin:0 0 8px; font-size:18px}
+  .card p{margin:0 0 12px; color:var(--muted); flex:1}
+  .card .small-btn{align-self:flex-start; background:var(--blue); color:white; padding:8px 12px; border-radius:8px; text-decoration:none; font-weight:700}
+
+ /* Slideshow */
+.slideshow{
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/3; /* maintain consistent proportion */
+    overflow: hidden;
+    border-radius: 12px;
+}
+.slideshow img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit:contain; /* show full image */
+    top:0; left:0;
+    opacity:0;
+    transition: opacity 1s ease-in-out;
+}
+
+  .slideshow img.active{
+    opacity:1;
+  }
+
+  /* Two-column hero-ish split */
+  .split{display:grid; grid-template-columns:1fr 420px; gap:28px; align-items:center}
+  @media (max-width:950px){ .split{grid-template-columns:1fr} }
+
+  /* Team */
+  .team-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:18px}
+  .person{background:var(--card);padding:16px;border-radius:12px;text-align:center}
+  .person img{width:100%;height:160px;object-fit:cover;border-radius:10px;margin-bottom:12px}
+
+  /* Footer */
+  footer{background:#081029;color:#e6eefc;padding:34px 20px}
+  footer .foot-inner{max-width:1200px;margin:0 auto;display:flex;gap:20px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap}
+  .foot-left p{margin:6px 0;color:rgba(230,238,252,0.92)}
+  .sitemap a{display:inline-block;color:rgba(230,238,252,0.9);margin-right:12px;margin-bottom:8px;text-decoration:none}
+
+  /* Modal */
+  .modal-backdrop{position:fixed;inset:0;background:rgba(2,6,23,0.55);display:none;align-items:center;justify-content:center;z-index:1200;padding:20px}
+  .modal{background:white;border-radius:12px;max-width:720px;width:100%;padding:20px}
+  .modal h4{margin-top:0}
+  .close-btn{background:transparent;border:0;font-weight:700; font-size:16px; cursor:pointer}
+
+  /* contact form */
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media (max-width:700px){.form-row{grid-template-columns:1fr}}
+  input,textarea,select{width:100%;padding:12px;border-radius:10px;border:1px solid #e6e9ee;font-size:14px}
+  textarea{min-height:120px;resize:vertical}
+  .muted{color:var(--muted);font-size:14px}
+
+  /* small helpers */
+  .muted-sm{color:var(--muted);font-size:13px;margin-top:6px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-wrap">
+    <div class="logo">
+      <div class="mark">
+	<img src="MIClogga_vit.jpeg" alt="MIC Logo" width="40"/>
+	</div>
+      <div>
+    <!-- <h1>Malmö International Church</h1> -->
+        <div class="muted-sm">A spiritual well at the heart of the city</div>
+      </div>
+    </div>
+
+    <nav aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#programs">Programs</a>
+      <a href="#community">Community</a>
+      <a href="#team">Team</a>
+      <a href="#vision">Vision</a>
+      <a href="#events">Events</a>
+      <a href="#contact">Contact</a>
+     <!-- <a class="cta" href="#programs">Join Sunday</a> -->
+    </nav>
+  </div>
+</header>
+
+<!-- HERO / HOME -->
+<section id="home" class="hero" role="region" aria-label="Welcome">
+  <div class="hero-inner">
+    <h2>Welcome to Malmö International Church</h2>
+    <p>Open hearts. Real community. Deep roots in Malmö — everyone is welcome here.</p>
+    <div class="btn-row">
+      <a class="btn" href="#programs">Join Sunday</a>
+      <a class="btn secondary" href="#contact">Contact Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN CONTENT -->
+<main>
+
+  <!-- ABOUT / QUICK -->
+  <section class="wrap" id="about">
+    <div class="split" role="region" aria-label="About">
+      <div>
+        <h3>About Malmö International Church</h3>
+<p>We are a welcoming international church in Malmö offering worship, community, teaching and support for families and individuals.</p>
+<p>We focus on worship, discipleship, and real community. Whether you are new to faith or seeking a church family, we would love to meet you.</p>
+<div style="margin-top:14px">
+  <a class="small-btn" href="#contact">Get in touch</a>
+</div>
+      </div>
+      <div style="border-radius:12px;overflow:hidden;box-shadow:0 8px 30px rgba(5,10,25,0.06)">
+        <div style="border-radius:12px;overflow:hidden;box-shadow:0 8px 30px rgba(5,10,25,0.06)">
+       <img src="images/cross2.jpg" alt="church interior" style="width:100%; display:block; height:auto; object-fit:contain; background:#f6f7f9; border-radius:12px;">
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAMS (Services / RMM / Bible School) -->
+  <section id="programs" class="wrap" aria-label="Programs">
+    <div class="section-head">
+      <h3>Programs & Services</h3>
+      <p>Worship, training and mission programs for all ages</p>
+    </div>
+    
+   <div class="grid" role="list">
+      <!-- Sunday Worship -->
+      <article class="card" role="listitem">
+        <div class="slideshow">
+          <img src="images/worship.jpg" alt="church interior" style="width:100%; display:block; height:100%; object-fit:cover">
+          <img src="images/worship2.jpg" alt="church interior" style="width:100%; display:block; height:100%; object-fit:cover">
+          <img src="images/cross2.jpg" alt="church interior" style="width:100%; display:block; height:100%; object-fit:cover">
+        </div>
+	<div class="card-body">
+          <h4>Sunday Worship</h4>
+          <p>Every Sunday at 11:00 — contemporary English service, welcoming atmosphere, coffee afterwards.</p>
+          <a class="small-btn" href="#contact" onclick="openRegister('Sunday Worship')">Register</a>
+        </div>
+      </article>
+
+     <!-- Bible School -->
+      <article class="card" role="listitem">
+        <div class="slideshow">
+          <img src="images/biblestudy.jpg" alt="church interior" style="width:100%; display:block; height:100%; object-fit:cover">
+          <img src="images/biblestudy2.jpg" alt="church interior" style="width:100%; display:block; height:100%; object-fit:cover">
+          <img src="images/biblestudy3.jpg" alt="church interior" style="width:100%; display:block; height:100%; object-fit:cover">
+        </div>
+        <div class="card-body">
+          <h4>Bible School</h4>
+          <p>Deepen your understanding of the Bible with weekly interactive classes and discussions.</p>
+          <a class="small-btn" href="#contact" onclick="openRegister('Bible School')">Register</a>
+        </div>
+      </article>
+
+      <!-- RMM -->
+      <article class="card" role="listitem">
+        <div class="slideshow">
+          <img src="images/rmm.jpg" alt="church interior" style="width:100%; display:block; height:100%; object-fit:cover">
+        </div>
+        <div class="card-body">
+          <h4>RMM / Mission</h4>
+          <p>Local and international outreach programs that support communities in need.</p>
+          <a class="small-btn" href="#contact" onclick="openRegister('RMM / Mission')">Register</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- COMMUNITY (Life Groups + Kids) -->
+  <section id="community" class="wrap" aria-label="Community">
+    <div class="section-head">
+       <h3>Community & Life Groups</h3>
+      <p>Join groups, kids programs and youth activities</p>
+    </div>
+    <div class="grid" role="list">
+      <!-- Life Groups -->
+      <article class="card" role="listitem">
+        <div class="slideshow">
+         <img src="images/lg2.jpg" alt="church interior" style="width:100%; display:block; height:100%; object-fit:cover">
+         <img src="images/lp2.jpg" alt="church interior" style="width:100%; display:block; height:100%; object-fit:cover">
+          <img src="images/lp1.jpg" alt="church interior" style="width:100%; display:block; height:100%; object-fit:cover">
+          <img src="images/lg4.jpg" alt="church interior" style="width:100%; display:block; height:100%; object-fit:cover">
+        </div>
+        <div class="card-body">
+          <h4>Life Groups</h4>
+          <p>Meet others weekly to study, pray and live life together in small, friendly groups across Malmö.</p>
+          <a class="small-btn" href="#contact" onclick="openRegister('Life Groups')">Join</a>
+        </div>
+      </article>
+
+      <!-- Kids -->
+      <article class="card" role="listitem">
+        <div class="slideshow">
+          <img src="images/kidpraying.jpg" alt="church interior" style="width:100%; display:block; height:100%; object-fit:cover">
+	  <img src="images/kidschurch.jpg" alt="church interior" style="width:100%; display:block; height:100%; object-fit:cover">
+	  <img src="images/yadult1.jpg" alt="church interior" style="width:100%; display:block; height:100%; object-fit:cover">
+        </div>
+        <div class="card-body">
+          <h4>Kids & Youth</h4>
+          <p>Safe, Fun and faith-building interactive programs for children and teens to grow in faith.</p>
+          <a class="small-btn" href="#contact" onclick="openRegister('Kids & Youth')">Join</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- EVENTS (Upcoming) -->
+  <section id="events" class="wrap" aria-label="Events">
+    <div class="section-head">
+      <h3>Upcoming Events</h3>
+      <p>Community events, special services and gatherings</p>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <img src="images/food.jpg" alt="church interior" style="width:100%; display:block; height:100%; object-fit:cover">
+        <div class="card-body">
+          <h4>Community Dinner</h4>
+          <p>Sept 20, 2025 — A potluck evening to connect and share a meal. All welcome.</p>
+          <a class="small-btn" href="#contact" onclick="openRegister('Community Dinner')">RSVP</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="images/annualmeeeting.jpg" alt="church interior" style="width:100%; display:block; height:100%; object-fit:cover">
+        <div class="card-body">
+          <h4>Annual Church Gathering</h4>
+          <p>Oct 5, 2025 — Celebration service and family day. Bring friends and family.</p>
+          <a class="small-btn" href="#contact" onclick="openRegister('Annual Gathering')">More info</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM / PASTORS -->
+  <section id="team" class="wrap" aria-label="Team">
+    <div class="section-head">
+      <h3>Meet the Pastors</h3>
+      <p>Leaders who care for the church and community</p>
+    </div>
+
+    <div class="team-grid">
+      <div class="person">
+        <img src="images/ingmar.jpg" alt="church interior" style="width:100%; display:block; height:100%; object-fit:cover">
+        <h4>Pastor Ingmar & Tina</h4>
+        <p class="muted-sm">Lead Pastor. Focus: community and vision.</p>
+        <div style="margin-top:8px"><a class="small-btn" href="mailto:jingmar@example.com">Email</a></div>
+      </div>
+
+      <div class="person">
+        <img src="images/worshipleaders.png" alt="church interior" style="width:100%; display:block; height:100%; object-fit:cover">
+        <h4>Pastor Maria</h4>
+        <p class="muted-sm">Worship and outreach leader.</p>
+        <div style="margin-top:8px"><a class="small-btn" href="mailto:maria@example.com">Email</a></div>
+      </div>
+
+      <div class="person">
+        <img src="images/rameshandjeni.png" alt="church interior" style="width:100%; display:block; height:100%; object-fit:cover">
+        <h4>Pastor Ramesh and Jenifer</h4>
+        <p class="muted-sm">Young adults & mentoring.</p>
+        <div style="margin-top:8px"><a class="small-btn" href="mailto:rameshandjeni@example.com">Email</a></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- VISION & GOSPEL -->
+  <section id="vision" class="wrap" aria-label="Vision and Gospel">
+    <div class="section-head">
+      <h3>Our Vision & Gospel</h3>
+      <p>Where we are headed and what we believe</p>
+    </div>
+
+    <div class="grid">
+     <div class="card">
+        <img src="images/vision.jpg" alt="church interior" style="width:100%; display:block; height:100%; object-fit:cover max-height:400px;">s
+        <div class="card-body">
+          <h4>Our Vision</h4>
+          <p>To be a Christ-centred, growing and outward-moving church that loves Malmö and the wider world.</p>
+          <a class="small-btn" href="#contact">Support Vision</a>
+
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="images/gospel.jpg" alt="church interior" style="width:100%; display:block; height:100%; object-fit:cover max-height:400px;">
+        <div class="card-body">
+          <h4>The Gospel</h4>
+          <p>We preach the good news of Jesus Christ: grace, transformation and hope for every person.</p>
+          <a class="small-btn" href="#contact">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="wrap" aria-label="Contact">
+    <div class="section-head">
+      <h3>Contact Us</h3>
+      <p>Questions, prayer requests or ready to get involved? Reach out.</p>
+    </div>
+
+    <div class="split" style="align-items:start">
+      <div style="background:var(--card);padding:20px;border-radius:12px;box-shadow:0 8px 30px rgba(5,10,25,0.04)">
+        <form id="contactForm" onsubmit="submitForm(event)">
+          <div style="display:flex;gap:12px;flex-wrap:wrap">
+            <input name="name" placeholder="Your name" required style="flex:1;padding:12px;border-radius:10px;border:1px solid #e6e9ee">
+            <input name="email" placeholder="Email" type="email" required style="flex:1;padding:12px;border-radius:10px;border:1px solid #e6e9ee">
+          </div>
+          <div style="margin-top:12px">
+            <input name="subject" placeholder="Subject (optional)" style="width:100%;padding:12px;border-radius:10px;border:1px solid #e6e9ee">
+          </div>
+          <div style="margin-top:12px">
+            <textarea name="message" placeholder="Message" required></textarea>
+          </div>
+          <div style="margin-top:12px; display:flex; gap:10px; align-items:center">
+            <button class="small-btn" type="submit">Send Message</button>
+            <div class="muted-sm">Or email us at <a href="mailto:info@malmochurch.se">info@malmochurch.se</a></div>
+          </div>
+        </form>
+      </div>
+
+      <div>
+        <div class="card" style="padding:18px;">
+          <h4>Visit Us</h4>
+          <p class="muted">Fågelbacksgatan 9A, Malmö</p>
+          <p class="muted">Service: Sundays at 10:00</p>
+          <p class="muted">Phone: +46 40 000 000</p>
+          <div style="height:12px"></div>
+          <a class="small-btn" href="https://www.google.com/maps?q=F%C3%A5gelbacksgatan+9A+Malmo" target="_blank" rel="noopener">Open in Maps</a>
+        </div>
+
+        <div style="height:16px"></div>
+
+        <div class="card" style="padding:18px;">
+          <h4>Connect Online</h4>
+          <p class="muted">Follow us for updates and community stories.</p>
+          <div style="display:flex;gap:10px;margin-top:10px">
+            <a class="small-btn" href="https://www.instagram.com/malmo.international.church/" target="_blank" rel="noopener">Instagram</a>
+            <a class="small-btn" href="https://www.facebook.com/malmointernationalchurch" target="_blank" rel="noopener">Facebook</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer>
+  <div class="foot-inner">
+    <div class="foot-left">
+      <strong>Malmö International Church</strong>
+      <p>Fågelbacksgatan 9A, Malmö</p>
+      <p><a href="mailto:info@malmochurch.se" style="color:var(--yellow)">info@malmochurch.se</a></p>
+    </div>
+
+    <div class="sitemap" aria-label="Sitemap">
+      <a href="#home">Home</a>
+      <a href="#programs">Programs</a>
+      <a href="#community">Community</a>
+      <a href="#team">Team</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Modal Register -->
+<div id="modalBack" class="modal-backdrop" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="modal" role="document">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <h4 id="modalTitle">Register</h4>
+      <button class="close-btn" onclick="closeModal()">✕</button>
+    </div>
+    <p class="muted-sm" id="modalSub">Complete the quick form to register.</p>
+    <form id="modalForm" onsubmit="submitRegister(event)" style="margin-top:12px">
+      <input name="regName" placeholder="Full name" required>
+      <div style="height:8px"></div>
+      <input name="regEmail" placeholder="Email" type="email" required>
+      <div style="height:8px"></div>
+      <input name="regFor" id="modalFor" readonly style="background:#f3f4f6">
+      <div style="height:8px"></div>
+      <button class="small-btn" type="submit">Submit registration</button>
+    </form>
+  </div>
+</div>
+
+<script>
+  // Smooth anchor focus and smooth scroll are handled by CSS scroll-behavior.
+  // Modal handling
+  const modalBack = document.getElementById('modalBack');
+  function openRegister(topic){
+    document.getElementById('modalTitle').textContent = 'Register: ' + topic;
+    document.getElementById('modalSub').textContent = 'Fill this to register for ' + topic + '.';
+    document.getElementById('modalFor').value = topic;
+    modalBack.style.display = 'flex';
+    modalBack.setAttribute('aria-hidden','false');
+  }
+  function closeModal(){
+    modalBack.style.display='none';
+    modalBack.setAttribute('aria-hidden','true');
+  }
+  modalBack.addEventListener('click', (e)=>{ if(e.target===modalBack) closeModal(); });
+
+function submitRegister(e){
+    e.preventDefault();
+    const f = e.target;
+    alert('Thanks! We received your registration for: ' + f.regFor.value + '\nWe will contact you soon.');
+    f.reset();
+    closeModal();
+}
+
+
+
+  // Contact form handler: fake send
+function submitForm(e){
+    e.preventDefault();
+    const fd = new FormData(e.target);
+    alert('Message sent\nThank you ' + fd.get('name') + '! We will reply to ' + fd.get('email') + '.');
+    e.target.reset();
+    window.location.hash = '#home';
+}
+
+
+  // small accessibility: keyboard ESC closes modal
+  document.addEventListener('keydown', (ev)=>{
+    if(ev.key === 'Escape') closeModal();
+  });
+
+  // Ensure links with href="#" do not jump
+  document.querySelectorAll('a[href="#"]').forEach(a=>a.addEventListener('click', e=>e.preventDefault()));
+
+  // Simple slideshow for all .slideshow containers
+  document.querySelectorAll('.slideshow').forEach(slide => {
+    const imgs = slide.querySelectorAll('img');
+    let idx = 0;
+    imgs[idx].classList.add('active');
+
+    setInterval(() => {
+      imgs[idx].classList.remove('active');
+      idx = (idx + 1) % imgs.length;
+      imgs[idx].classList.add('active');
+    }, 3000); // change every 3 seconds
+  });
+
+</script>
+</body>
+</html>
